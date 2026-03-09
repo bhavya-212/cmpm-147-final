@@ -27,6 +27,7 @@ namespace TinyDungeon
         [Header("Visuals")]
         public GameObject roomPrefab;
         public GameObject linePrefab;
+        public GameObject playerPrefab;
 
         private Dictionary<Vector2Int, RoomType> rooms = new Dictionary<Vector2Int, RoomType>();
         private List<(Vector2Int, Vector2Int)> corridors = new List<(Vector2Int, Vector2Int)>();
@@ -204,8 +205,14 @@ namespace TinyDungeon
                         else if (kvp.Value == RoomType.Loot) renderer.material.color = Color.yellow;
                         else renderer.material.color = Color.gray;
                     }
+
                     // ensure rooms sit ON TOP of lines
                     if (renderer != null) renderer.sortingOrder = 1;
+
+                    if (kvp.Value == RoomType.Start && playerPrefab != null)
+                    {
+                        Instantiate(playerPrefab, pos, Quaternion.identity);
+                    }
                 }
             }
 
