@@ -29,8 +29,10 @@ namespace TinyDungeon
         public GameObject linePrefab;
         public GameObject playerPrefab;
 
-        private Dictionary<Vector2Int, RoomType> rooms = new Dictionary<Vector2Int, RoomType>();
-        private List<(Vector2Int, Vector2Int)> corridors = new List<(Vector2Int, Vector2Int)>();
+        //private Dictionary<Vector2Int, RoomType> rooms = new Dictionary<Vector2Int, RoomType>();
+        public Dictionary<Vector2Int, RoomType> rooms = new Dictionary<Vector2Int, RoomType>();
+        // private List<(Vector2Int, Vector2Int)> corridors = new List<(Vector2Int, Vector2Int)>();
+        public List<(Vector2Int, Vector2Int)> corridors = new List<(Vector2Int, Vector2Int)>();
         private List<(Vector2Int, Vector2Int)> lockedDoors = new List<(Vector2Int, Vector2Int)>();
         private Transform dungeonContainer;
 
